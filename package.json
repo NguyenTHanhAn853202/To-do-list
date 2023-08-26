@@ -1,0 +1,40 @@
+{
+  "name": "anproject",
+  "version": "1.0.0",
+  "description": "app to do list simple",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/App/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenTHanhAn853202/To-do-list.git"
+  },
+  "keywords": [
+    "thanhan"
+  ],
+  "author": "thanh an",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenTHanhAn853202/To-do-list/issues"
+  },
+  "homepage": "https://github.com/NguyenTHanhAn853202/To-do-list#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "jsonwebtoken": "^9.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.4.1",
+    "node-localstorage": "^3.0.5"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.1"
+  }
+}

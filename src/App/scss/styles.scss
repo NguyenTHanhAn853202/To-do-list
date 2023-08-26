@@ -1,0 +1,300 @@
+@import 'variable';
+
+// Fontawesome
+// importing core styling file
+@import "../../public/fontawesome/scss/fontawesome.scss";
+// our project needs Classic Solid, Brands, and Sharp Solid
+@import "../../public/fontawesome/scss/solid.scss";
+@import "../../public/fontawesome/scss/brands.scss";
+@import "../../public/fontawesome/scss/regular.scss";
+
+
+// global
+* {
+    padding: 0;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+html {
+    font-size: 62.5%;
+    height: 100vh;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    height: 100vh;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+button {
+    cursor: pointer;
+    &:focus{
+        border: none;
+    }
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+textarea{
+    font:inherit;
+    resize: none;
+}
+
+ul{
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,p,a {
+    color: #000000;
+    margin: 0;
+}
+
+// waring
+.warning-input{
+    border-color: red !important;
+    color: red;
+}
+
+// main
+.main{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+// header
+
+.header{
+    z-index: 99;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(37,54,62);
+    .grid{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        .logo {
+            width: 5%;
+            img{
+                display: block;
+                width: 100%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+        .list{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .item{
+                font-size: 1.8rem;
+                padding: 0 10px;
+                cursor: pointer;
+                transition: 0.3s;
+                opacity: 0.8;
+                &:hover{
+                    text-decoration: underline;
+                    opacity: 1;
+                }
+                a{
+                    color: rgb(133, 198, 252);
+                }
+            }
+            .active {
+                opacity: 1;
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
+
+// Footer
+
+.footer {
+    background-color: rgba( 100, 149, 237, 0.4 );
+    padding: 70px 0;
+    .footer__contain {
+        display: flex;
+        justify-content: space-between;
+        .pages,.contact,.social_media{
+            width: 33.33%;
+            h1{
+                text-align: center;
+                font-size: 2rem;
+                padding: 10px 0;
+                min-height: 70px;
+            }
+            ul{
+                li{
+                    display: flex;
+                    font-size: 2.2rem;
+                    align-items: center;
+                    padding: 5px 0;
+                    h4{
+                        margin-left:10px;
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+        .pages{
+            position: relative;
+            ul{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .social_media{
+           ul{
+                display: flex;
+                justify-content:center;
+                .tiktok{
+                    margin:0 20px;
+                }
+           }
+        }
+    }
+}
+
+
+// body
+.body{
+    display: flex;
+    justify-content:center;
+}
+.grid{
+    width: $grid-layout;
+}
+
+// home
+.home{
+    $padding:70px 0;
+
+    .home__familiar-css{
+        padding: $padding;
+        h1{
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            font-size: 4.5rem;
+            font-weight: 700;
+        }
+        p{
+            width: 70%;
+            font-size: 3rem;
+            font-weight:400;
+            margin: auto;
+            text-align: center;
+            opacity: 0.7;
+            padding-bottom: 30px;
+        }
+        button{
+            // margin: 30px 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            padding: 10px 20px;
+            background-color:#000;
+            border-radius: 7px;
+            &:hover{
+                opacity: 0.7;
+            }
+            a{
+                color: #e9e2e2;
+            }
+        }
+    }
+    .contain__home{
+        background-color:rgb(253,245,230);
+       
+    }
+
+    .introduction{
+        background-image: url("/image/home/background-introduction.jpg");
+        position: relative;
+        h1,p,a{
+            color: #d4c6c6;
+        }
+        h1{
+            text-shadow: 3px 3px 3px #777;
+
+        }
+    }
+
+    .timetable{
+        background-color:#9c9999;
+        display: flex;
+        .info{
+            flex: 1;
+            position: relative;
+        }
+        img{
+            display:block;
+            width: 40%;
+            object-fit: fill;
+            padding-right: 30px;
+        }
+    }
+
+    .schedule{
+        background-color:#fff;
+        display: flex;
+        img{
+            display: block;
+            width: 40%;
+            object-fit: fill;
+        }
+        .info{
+            flex: 1;
+            position: relative;
+        }
+    }
+}
+

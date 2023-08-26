@@ -1,0 +1,46 @@
+<div class="container pt-5 pb-5">
+  <div class="row justify-content-center" >
+        <form class="col-5" name="register-account" method="post" action="/register/create">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" name="username" class="form-control fs-4" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Chúng tôi sẽ không chia sẽ email với bất kỳ ai</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control fs-4" id="exampleInputPassword1">
+          </div>
+           <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="repassword" class="form-control fs-4" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox"  class="form-check-input register__check" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Xác nhận</label>
+          </div>
+          <button type="submit" class="btn btn-primary fs-3 ps-5 pe-5">Submit</button>
+        </form>
+  </div>
+</div>
+<script>
+    const form = document.forms['register-account']
+   const password = document.getElementsByName('password')[0]
+   const repassword = document.getElementsByName('repassword')[0]
+   const check = document.querySelector('.register__check')
+   form.onsubmit = function(event) {
+        event.preventDefault();
+        if(!check.checked){
+            alert('Vui lòng xác nhận')
+            return;
+        } 
+        if(password.value !== repassword.value){
+            alert('Mật khẩu không trùng nhau')
+        }
+        else if(password.value.length <8){
+            alert('Mật khẩu phải có 8 ký tự trở lên')
+        }
+        else{
+            form.submit()
+        }
+   }
+</script>

@@ -1,0 +1,37 @@
+.calendar {
+  padding: 30px 0; }
+  .calendar .calendar-title {
+    text-align: center;
+    font-size: 2.6rem; }
+  .calendar .calendar__container {
+    display: flex;
+    column-gap: 50px; }
+    .calendar .calendar__container .calendar__contain-input {
+      flex: 1; }
+      .calendar .calendar__container .calendar__contain-input label {
+        display: block;
+        font-size: 2rem; }
+      .calendar .calendar__container .calendar__contain-input input {
+        width: 45%;
+        height: 40px;
+        font-size: 1.8rem;
+        border: 1px solid #999;
+        padding: 3px 5px;
+        box-shadow: 0px 0px 7px 2px #c7c2c2;
+        border-radius: 7px; }
+      .calendar .calendar__container .calendar__contain-input button {
+        border: 1px solid #999;
+        width: 40px;
+        height: 40px;
+        border-radius: 7px; }
+      .calendar .calendar__container .calendar__contain-input .calendar__contain-info {
+        overflow: scroll;
+        max-height: 50vh; }
+  .calendar .calendar__seeing {
+    width: 50%; }
+    .calendar .calendar__seeing .calendar_seeing-container {
+      max-height: 60vh;
+      overflow: scroll; }
+
+.shadow-container {
+  box-shadow: 0 0 7px 3px #ccc9c9 inset; }

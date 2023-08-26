@@ -1,0 +1,28 @@
+<div class="body">
+    <div class="scheduel grid">
+        <form action="/scheduel/create-calendar"  method="post" enctype="multipart/form">
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tiêu đề công việc</label>
+            <input type="text" name="title" class="form-control scheduel__input-content" id="exampleFormControlInput1" placeholder="Công Việc...">
+            
+            </div>
+            <div class="scheduel__input-date">
+                <label  for="scheduel-date-time">Chọn thời gian</label>
+                <input name="date" type="datetime-local" id="scheduel-date-time" />
+                <select name="level">
+                    <option value="success">Mức độ</option>
+                    <option value="success">Bình thường</option>
+                    <option value="warning">Trung bình</option>
+                    <option value="danger">Phải thực hiện</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Miêu tả công việc</label>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input class="btn btn-success scheduel-btn-submit" type="submit" value="Xác nhận">
+            </div>
+        </form>
+    </div>
+</div>

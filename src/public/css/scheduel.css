@@ -1,0 +1,29 @@
+.scheduel {
+  width: 40%;
+  padding: 50px 0; }
+  .scheduel label {
+    font-size: 2rem;
+    display: block; }
+  .scheduel .scheduel__input-content {
+    font-size: 1.6rem;
+    height: 40px; }
+  .scheduel textarea {
+    font-size: 1.6rem;
+    height: 100px; }
+  .scheduel #scheduel-date-time {
+    font-size: 1.6rem;
+    border: 1px solid #999;
+    width: 50%;
+    height: 40px;
+    padding: 3px 7px; }
+  .scheduel select {
+    font-size: 1.6rem;
+    border: 1px solid #999;
+    height: 40px;
+    width: 30%;
+    padding: 3px 7px;
+    border-radius: 7px;
+    margin-left: 10px; }
+  .scheduel .scheduel-btn-submit {
+    font-size: 1.6rem;
+    padding: 5px; }

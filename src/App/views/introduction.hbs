@@ -1,0 +1,85 @@
+<div class="introduct body">
+    <div class="grid">
+        <h1 class="introduct-title">
+            Mục tiêu của chúng tôi
+        </h1>
+        <p>
+            Với sứ mệnh giúp đở các bạn trẻ cũng như nhừng người xung quanh 
+            quản lý thời gian của mình dễ dàng hơn. Chúng tôi ở đây để giúp các bạn
+            quản lý công việc một cách dễ dàng và giúp bạn có thời gian để thực hiện 
+            các việc khác.
+        </p>
+        <h1>Thông tin của chúng tôi</h1>
+        <div class="introduct-contact">
+            <iframe 
+                class="iframe-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15276.953747183
+                73!2d107.21675619675038!3d16.814523384065364!2m3!1f0!2f0!3f0!3m2!1i1024!2i
+                768!4f13.1!3m3!1m2!1s0x3140e3c42146f5d5%3A0x27682386c55a9400!2zTGluaCBBbi
+                wgVHJp4buHdSBUcuG6oWNoLCBUcmnhu4d1IFBob25nLCBRdeG6o25nIFRy4buLLCBWaeG7h3Qg
+                TmFt!5e0!3m2!1svi!2s!4v1690690350583!5m2!1svi!2s"
+                width="600" height="450" style="border:0;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="introduct-media">
+                 <ul>
+                    <li>
+                        <i class="fa-solid fa-user"></i>
+                        <h4>0387667382</h4>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-envelope"></i>
+                        <h4>nguyenthanhanqt@gmail.com</h4>
+                    </li>
+                    <li>
+                       <i class="fa-solid fa-location-dot"></i>
+                        <h4>Triệu Phong - Quảng Trị</h4>
+                    </li>
+                </ul> 
+                <ul class="icon-media">
+                    <li class="facebooke">
+                        <a href="https://www.facebook.com/an.thanh.7921975"><i class="fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li class="tiktok">
+                        <a href="https://www.tiktok.com/@anthanh904"><i class="fa-brands fa-tiktok"></i></a>
+                    </li>
+                    <li class="instagram">
+                        <a href="https://www.instagram.com/an.thanh.7921975/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                </ul>  
+                <form action="" method="post">
+                    <h1 class="introduct__title-form">Liên hệ với chúng tôi</h1>
+                    <div class="contain-input">
+                        <input type="email" name="email" class="introduct__form_email" placeholder="Nhập email của bạn">
+                        <input type="text" name="name" class="introduct__form_name" placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <textarea ></textarea>
+                    <input type="submit" value="Gửi">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const submitForm = document.querySelector('form')
+    const email = document.querySelector('input[name="email"]')
+    const name = document.querySelector('input[name="name"]')
+    const feedback = document.querySelector('textarea')
+    
+    const checkEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    const isEmail = (email) => checkEmail.test(email)
+
+    //Handle Event here!
+    //Check Email
+    email.onchange = function (e) {
+        const checkEmail = isEmail(e.target.value|| '')
+        console.log(checkEmail)
+        !checkEmail && e.target.classList.add('warning-input')
+        console.log(checkEmail && e.taget.getAttribute('class').includes('warning-input') )
+        (checkEmail && e.taget.getAttribute('class').includes('warning-input') ) ? e.target.classList.remove('warning-input'):null
+    }   
+    submitForm.onsubmit = function(e){
+        e.preventDefault();
+    }
+</script>

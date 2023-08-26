@@ -1,0 +1,94 @@
+<div class="body">
+    <div class="calendar grid">
+        <h1 class="calendar-title pb-1">Xem lịch trình nào</h1>
+        <div class="calendar__container">
+                {{#with others}}
+            <div class="calendar__contain-input">
+                   <form method="get">
+                        <label class="pb-4" for="calendar__input-date">Bạn muốn xem lịch ngày nào?</label>
+                        <input id="calendar__input-date" value={{ifDate dateFind}} name="input-date" type="date">
+                        <button class="calendar__search" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                   </form>
+                  <div class="calendar__contain-info mt-5 {{ifClass checkFind 'shadow-container' ''}}">
+                {{/with}}
+                       {{#each find}}
+                            <div class="alert alert-{{this.level}}" role="alert">
+                                <h4 class="alert-heading fs-3 fw-bold">{{this.name}}</h4>
+                                <p class="fs-4">{{this.description}}</p>
+                                <hr>
+                                <p class="mb-0 pb-2">{{date this.date}}</p>
+                                <button type="button" data-id={{this._id}} class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#calendar-confirm" >Hủy</button>
+                                <button type="button" data-id={{this._id}} class="btn btn-success calendar__finished">Hoàn thành</button>
+                            </div>
+                        {{/each}}
+                  </div>
+            </div>
+                <div class="calendar__seeing">
+                    <h1 class="pb-4">Danh sách lịch</h1>
+                {{#with others}}
+                <div class="calendar_seeing-container {{ifClass check 'shadow-container' ''}}">
+                {{/with}}
+                    {{#each calendar}}
+                        <div class="alert alert-{{this.level}}" role="alert">
+                            <h4 class="alert-heading fs-3 fw-bold">{{this.name}}</h4>
+                            <p class="fs-4">{{this.description}}</p>
+                            <hr>
+                            <p class="mb-0 pb-2">{{date this.date}}</p>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#calendar-confirm"  data-id={{this._id}} class="btn btn-danger">Hủy</button>
+                            <button type="button" class="btn btn-success calendar__finished" data-id={{this._id}} >Hoàn thành</button>
+                        </div>
+                    {{/each}}
+                </div>
+                </div>
+        </div>
+        <div class="modal fade" id="calendar-confirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn thực hiện 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary calendar__btn-cancel" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary calendar__btn-confirm">Xác nhận</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <form method="post" id="calendar__form-support"></form>
+        <script>
+            const form = document.querySelector('#calendar__form-support')
+            const calendarConfirm = document.getElementById('calendar-confirm')
+            const btnFinished = document.querySelectorAll('.calendar__finished')
+            let id;
+
+            console.log(btnFinished)
+
+            btnFinished.forEach((item)=>{
+                item.onclick = function(e) {
+                    const id = e.target.getAttribute('data-id')
+                    form.action = '/calendar/'+id+'?_method=PUT'
+                    form.submit();
+                }
+            })
+
+            calendarConfirm.addEventListener('show.bs.modal', function (event) {
+                const btnConfirm  = document.querySelector('.calendar__btn-confirm')
+                const btnCancel = document.querySelector('.calendar__btn-cancel')
+                const button = event.relatedTarget
+                id = button.getAttribute('data-id')
+                btnConfirm.onclick = function (event) {
+                   form.action = '/calendar/'+id+'?_method=DELETE'
+                   form.submit()
+                }
+            })
+
+
+        </script>
+    </div>
+</div>
