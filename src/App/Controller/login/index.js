@@ -5,7 +5,7 @@ const local = new localStorage('./localStorage')
 
 class Login{
     index(req, res) {
-        res.render('login')
+        res.render('login',{active:'login'})
     }
 
     async refreshToken(req, res) {
@@ -17,10 +17,15 @@ class Login{
         const password = req.body?.password
         const data = await Account.findOne({username: name, password: password})
         if(data){
-            local.setItem('userName', name);
-            return res.render('home',{login:true})
+            res.cookie('login',true)
+            res.redirect('/home')
         }
         return res.render('login',{show:true})
+    }
+
+    async logout(req, res){
+        res.cookie('login','')
+        res.redirect('/login')
     }
 }
 

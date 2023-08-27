@@ -67,6 +67,7 @@ button {
 
 a[href] {
     text-decoration: none;
+    color: black ;
 }
 
 textarea{
@@ -143,7 +144,28 @@ li,p,a {
                 a{
                     color: rgb(133, 198, 252);
                 }
+                .header__btn__avatar{
+                    background-color: transparent;
+                    border: none;
+                    &:focus{
+                        box-shadow: none;
+                    }
+                   
+                }
+                .header__dropdown{
+                    a{
+                        color: black;
+                    }
+                }
+                img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
             }
+
+            
+            
             .active {
                 opacity: 1;
                 text-decoration: underline;

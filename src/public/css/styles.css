@@ -7816,7 +7816,8 @@ button {
     border: none; }
 
 a[href] {
-  text-decoration: none; }
+  text-decoration: none;
+  color: black; }
 
 textarea {
   font: inherit;
@@ -7879,6 +7880,17 @@ li, p, a {
           opacity: 1; }
         .header .grid .list .item a {
           color: #85c6fc; }
+        .header .grid .list .item .header__btn__avatar {
+          background-color: transparent;
+          border: none; }
+          .header .grid .list .item .header__btn__avatar:focus {
+            box-shadow: none; }
+        .header .grid .list .item .header__dropdown a {
+          color: black; }
+        .header .grid .list .item img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%; }
       .header .grid .list .active {
         opacity: 1;
         text-decoration: underline; }

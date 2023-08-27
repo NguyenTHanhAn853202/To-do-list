@@ -17,16 +17,59 @@
                         Lên lịch
                     </a>
                 </li>
-                <li class="item {{ifActive active 'login' 'active'}}">
-                    <a href="/login">
-                        Đăng nhập
-                    </a>
-                </li>
-                <li class="item {{ifActive active 'register' 'active'}}">
-                    <a href="/register">
-                        Đăng ký
-                    </a>
-                </li>
+                {{#if logined}}
+                
+                    <li class="item item__login">
+                        <div class="dropdown">
+                            <button  class="btn btn-secondary dropdown-toggle header__btn__avatar" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg" />
+                            </button>
+                    
+                            <ul class="dropdown-menu header__dropdown" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item fs-4" href="#">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item fs-4" href="#">Cập nhật thông tin</a></li>
+                                <li><span class="dropdown-item fs-4" id="header__logout">Đăng xuất</span></li>
+                            </ul>
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="item {{ifActive active 'login' 'active'}}">
+                        <a href="/login">
+                            Đăng nhập
+                        </a>
+                    </li>
+                    <li class="item {{ifActive active 'register' 'active'}}">
+                        <a href="/register">
+                            Đăng ký
+                        </a>
+                    </li>
+                {{/if}}
             </ul>  
    </div>
 </div>
+<form class="header__form--support"></form>
+
+<script>
+    const btnAvatar = document.querySelector('.header__btn__avatar')
+    const show  = document.querySelector('.header__dropdown')
+    const form = document.querySelector('.header__form--support')
+    const btnLogout = document.querySelector('#header__logout')
+    btnAvatar.onclick = () =>{
+        if(show.getAttribute('class').includes('show')){
+           show.classList.remove('show')
+           btnAvatar.classList.remove('show')
+        }
+        else {
+            show.classList.add('show')
+            btnAvatar.classList.add('show')
+        }
+    }
+
+    console.log(form)
+    btnLogout.onclick = function(event){
+        form.action = '/login/logout'
+        form.method = 'post'
+        form.submit()
+    }
+
+</script>

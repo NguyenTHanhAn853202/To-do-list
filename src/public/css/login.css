@@ -5,7 +5,8 @@
     font-weight: 500;
     text-align: center; }
   .login__container input {
-    height: 40px; }
+    height: 40px;
+    font-size: 1.6rem; }
   .login__container label {
     padding-top: 10px; }
   .login__container button {

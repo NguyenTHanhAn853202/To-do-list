@@ -9,6 +9,9 @@ const cookieParser = require('cookie-parser')
 const db = require('./configs/db')
 const {route} = require('./routers')
 const handlebars = require('express-handlebars')
+const handlebarsHelper = require('./handlebarsHelper')
+const middleware = require('./Middleware')
+
 
 var hbs = handlebars.create({});
 
@@ -42,6 +45,8 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(middleware);
+
 // connect db
 db.connect();
 
@@ -51,45 +56,8 @@ route(app)
 
 
 // registerHelper HandleBar
-hbs.handlebars.registerHelper("ifDate", function(conditional,value1,value2) {
-  if (conditional) {
-      return conditional
-  }
-  else{
-    const newDate = new Date()
-    return `${newDate.getFullYear()}-${addZero(newDate.getMonth()+1)}-${addZero(newDate.getDate())}`
-  }
-});
 
-hbs.handlebars.registerHelper("ifClass", function(conditional,value1,value2) {
-  if (conditional) {
-      return value1
-  }
-  else{
-      return value2
-  }
-});
+handlebarsHelper(hbs.handlebars)
 
-const addZero = (number)=>{
-  const sNumber = number+''
-  return sNumber.length ===1?`0${number}`:number
-}
-
-hbs.handlebars.registerHelper("date",function(date) {
-  const time = new Date(date)
-  const day = time.getDay()===0?'Chủ nhật':`T${time.getDay()+1}`
-  return `${time.getHours()}:${addZero(time.getMinutes())} - ${day}_${addZero(time.getDate())}/${addZero(time.getMonth()+1)}/${time.getFullYear()}`
-})
-
-hbs.handlebars.registerHelper('log',function (log) {
-    console.log(log)
-})
-
-hbs.handlebars.registerHelper('ifActive',function (value1,value2,active) {
-    if(value1 === value2){
-      return active
-    }
-    return ''
-})
 
 app.listen(3030)
