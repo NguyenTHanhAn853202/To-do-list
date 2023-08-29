@@ -4,9 +4,10 @@ const toObject = require('../../../utils/toObject')
 class Calender{
     async index(req,res,next){
         const date = req.query['input-date'] || ''
-        const dataFind = await Calendar.find({dateFind:date,finished:{$ne:true}})
+        const userName = req.cookies?.userName
+        const dataFind = await Calendar.find({dateFind:date,finished:{$ne:true},userName:userName })
         const find = toObject.many(dataFind)
-        const data = await Calendar.find({date:{$gte:new Date()},finished:{$ne:true}}).sort({date:1})
+        const data = await Calendar.find({date:{$gte:new Date()},userName:userName,finished:{$ne:true}}).sort({date:1})
         const calendar = toObject.many(data)
         const checkFind = find.length >0?true:false
         const check = calendar.length>0?true:false

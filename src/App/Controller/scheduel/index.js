@@ -7,10 +7,11 @@ class Scheduel{
     }
 
     async create(req,res){
+        const userName = req.cookies?.userName||''
         const {description,title,date,level} = req.body
         const newDate = new Date(date) || new Date()
         const dateFind = `${newDate.getFullYear()}-${addZero(newDate.getMonth()+1)}-${addZero(newDate.getDate())}`
-        const newCalendar = new Calendar({name:title,description,date,level,dateFind})
+        const newCalendar = new Calendar({name:title,description,date,level,dateFind,userName})
         await newCalendar.save();
         return res.render('scheduel')
     }

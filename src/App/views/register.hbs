@@ -1,24 +1,36 @@
+<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
+  <div class="toast-container position-absolute top-0 end-0 p-3" id="toastPlacement">
+      <div class="toast {{ifClass show 'show' ''}} login__toast bg-warning  fs-4 align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Tên đăng nhập đã tồn tại
+      </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container pt-5 pb-5">
   <div class="row justify-content-center" >
         <form class="col-5" name="register-account" method="post" action="/register/create">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <label for="exampleInputEmail1" class="form-label">Tên đăng nhập</label>
             <input type="email" name="username" class="form-control fs-4" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Chúng tôi sẽ không chia sẽ email với bất kỳ ai</div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
             <input type="password" name="password" class="form-control fs-4" id="exampleInputPassword1">
           </div>
            <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label for="exampleInputPassword1" class="form-label">Nhập lại mật khâir</label>
             <input type="password" name="repassword" class="form-control fs-4" id="exampleInputPassword1">
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox"  class="form-check-input register__check" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Xác nhận</label>
           </div>
-          <button type="submit" class="btn btn-primary fs-3 ps-5 pe-5">Submit</button>
+          <button type="submit" class="btn btn-primary fs-3 ps-5 pe-5">Đăng ký</button>
         </form>
   </div>
 </div>

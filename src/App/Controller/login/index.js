@@ -18,13 +18,15 @@ class Login{
         const data = await Account.findOne({username: name, password: password})
         if(data){
             res.cookie('login',true)
+            res.cookie('userName',data?.userName,{httpOnly:true})
             res.redirect('/home')
         }
         return res.render('login',{show:true})
     }
 
     async logout(req, res){
-        res.cookie('login','')
+        res.cookie('login','',{maxAge:0})
+        res.cookie('userName','',{maxAge:0})
         res.redirect('/login')
     }
 }

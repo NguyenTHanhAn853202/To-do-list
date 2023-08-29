@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const CalendarSchema = new Schema({
-    userID :{type:mongoose.Schema.Types.ObjectId,ref:'Account'},
+    userName :{type:String,ref:'Account'},
     name:{type:String, required:true},
     description:String,
     date:Date,

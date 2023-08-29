@@ -29,6 +29,12 @@
                     <h1 class="pb-4">Danh sách lịch</h1>
                 {{#with others}}
                 <div class="calendar_seeing-container {{ifClass check 'shadow-container' ''}}">
+                    {{#unless check}}
+                        <span>
+                            Hiện bạn chưa có lịch trình nào cả hãy tạo cho mình một lịch trình.
+                            <a class="text-danger" href="/scheduel">Đi đến lập lịch trình</a>
+                        </span>
+                    {{/unless}}
                 {{/with}}
                     {{#each calendar}}
                         <div class="alert alert-{{this.level}}" role="alert">
@@ -60,35 +66,31 @@
                 </div>
             </div>
         </div>
-        <form method="post" id="calendar__form-support"></form>
-        <script>
-            const form = document.querySelector('#calendar__form-support')
-            const calendarConfirm = document.getElementById('calendar-confirm')
-            const btnFinished = document.querySelectorAll('.calendar__finished')
-            let id;
-
-            console.log(btnFinished)
-
-            btnFinished.forEach((item)=>{
-                item.onclick = function(e) {
-                    const id = e.target.getAttribute('data-id')
-                    form.action = '/calendar/'+id+'?_method=PUT'
-                    form.submit();
-                }
-            })
-
-            calendarConfirm.addEventListener('show.bs.modal', function (event) {
-                const btnConfirm  = document.querySelector('.calendar__btn-confirm')
-                const btnCancel = document.querySelector('.calendar__btn-cancel')
-                const button = event.relatedTarget
-                id = button.getAttribute('data-id')
-                btnConfirm.onclick = function (event) {
-                   form.action = '/calendar/'+id+'?_method=DELETE'
-                   form.submit()
-                }
-            })
-
-
-        </script>
     </div>
 </div>
+<form method="post" id="calendar__form-support"></form>
+<script>
+    const formSupport = document.querySelector('#calendar__form-support')
+    const calendarConfirm = document.getElementById('calendar-confirm')
+    const btnFinished = document.querySelectorAll('.calendar__finished')
+    let id;
+
+    btnFinished.forEach((item)=>{
+        item.onclick = function(e) {
+            const id = e.target.getAttribute('data-id')
+            formSupport.action = '/calendar/'+id+'?_method=PUT'
+            formSupport.submit();
+        }
+    })
+
+    calendarConfirm.addEventListener('show.bs.modal', function (event) {
+        const btnConfirm  = document.querySelector('.calendar__btn-confirm')
+        const btnCancel = document.querySelector('.calendar__btn-cancel')
+        const button = event.relatedTarget
+        id = button.getAttribute('data-id')
+        btnConfirm.onclick = function (event) {
+            formSupport.action = '/calendar/'+id+'?_method=DELETE'
+            formSupport.submit()
+        }
+    })
+</script>
