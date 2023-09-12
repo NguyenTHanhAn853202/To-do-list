@@ -23,7 +23,7 @@
             <input type="password" name="password" class="form-control fs-4" id="exampleInputPassword1">
           </div>
            <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Nhập lại mật khâir</label>
+            <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
             <input type="password" name="repassword" class="form-control fs-4" id="exampleInputPassword1">
           </div>
           <div class="mb-3 form-check">
@@ -35,11 +35,11 @@
   </div>
 </div>
 <script>
-    const form = document.forms['register-account']
+    const formLogRegister = document.forms['register-account']
    const password = document.getElementsByName('password')[0]
    const repassword = document.getElementsByName('repassword')[0]
    const check = document.querySelector('.register__check')
-   form.onsubmit = function(event) {
+   formLogRegister.onsubmit = function(event) {
         event.preventDefault();
         if(!check.checked){
             alert('Vui lòng xác nhận')
@@ -52,7 +52,7 @@
             alert('Mật khẩu phải có 8 ký tự trở lên')
         }
         else{
-            form.submit()
+            formLogRegister.submit()
         }
    }
 </script>

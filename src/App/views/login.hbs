@@ -26,17 +26,17 @@
     </form>
   </div>
 </div>
-
-<script>
-  const form  = document.forms['login__form']
+<script module="angular">
+  const formLogin  = document.forms['login__form']
   const userName = document.querySelector('#login__email')
   const password = document.querySelector('#login__password')
   const toast = document.querySelector('.login__toast')
   let idTimeout = null;
   setTimeout(()=>{
     if(toast.getAttribute('class').includes('show')) toast.classList.remove('show')
-  },2000)
-  form.onsubmit = function(e) {
+  },3000)
+  clearTimeout(idTimeout)
+  formLogin.onsubmit = function(e) {
     e.preventDefault();
     if(idTimeout){
       clearTimeout(idTimeout);
@@ -45,10 +45,10 @@
       toast.classList.add('show')
       id = setTimeout(()=>{
         toast.classList.remove('show')
-      },2000)
+      },3000)
     }
     else{
-      form.submit();
+      formLogin.submit();
     }
   }
 </script>

@@ -9,6 +9,7 @@ const CalendarSchema = new Schema({
     dateFind:{type:String, required:true},
     finished:{type:Boolean, required:false},
     level:{type:String, default:'normal'},
+    finished:{type:Boolean, required:false},
     createAt:{type:Date, default:Date.now},
     updateAt:{type:Date, default:Date.now},
     deleteAt:{type:Date, default:Date.now},

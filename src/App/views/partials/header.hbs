@@ -54,7 +54,8 @@
     const show  = document.querySelector('.header__dropdown')
     const form = document.querySelector('.header__form--support')
     const btnLogout = document.querySelector('#header__logout')
-    btnAvatar.onclick = () =>{
+    if(btnAvatar){
+        btnAvatar.onclick = function(){
         if(show.getAttribute('class').includes('show')){
            show.classList.remove('show')
            btnAvatar.classList.remove('show')
@@ -64,11 +65,14 @@
             btnAvatar.classList.add('show')
         }
     }
+    }
 
-    btnLogout.onclick = function(event){
-        form.action = '/login/logout'
-        form.method = 'post'
-        form.submit()
+    if(btnLogout){
+        btnLogout.onclick = function(event){
+            form.action = '/login/logout'
+            form.method = 'post'
+            form.submit()
+        }
     }
 
 </script>
